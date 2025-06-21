@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 	"strings"
+	"fmt"
 )
 
 var ErrNoAuthHeaderIncluded = errors.New("no authorization header included")
@@ -15,6 +16,7 @@ func GetAPIKey(headers http.Header) (string, error) {
 		return "", ErrNoAuthHeaderIncluded
 	}
 	splitAuth := strings.Split(authHeader, " ")
+	fmt.Printf(splitAuth[0])
 	if len(splitAuth) < 2 || splitAuth[0] != "ApiKey" {
 		return "", errors.New("malformed authorization header")
 	}

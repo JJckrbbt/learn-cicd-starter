@@ -22,7 +22,7 @@ func TestGetAPIKey(t *testing.T) {
 	reqInvalid.Header.Set("Authorization", "apikey invalid-api-key")
 	
 	apiKey, err = GetAPIKey(reqInvalid.Header)
-	if err != nil {
+	if err == nil {
 		t.Errorf("handler did not err: %v", err)
 	}
 

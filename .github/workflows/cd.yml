@@ -23,12 +23,12 @@ jobs:
       - name: Build
         run: scripts/buildprod.sh
 
+
+      - name: Run migrations
+        run: scripts/migrateup.sh
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
-      - name: Run migrations
-        run: scripts/migrateup.sh
-
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 

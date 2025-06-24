@@ -33,5 +33,5 @@ jobs:
           uses: actions/setup-go@v5
 
         - name: go format
-          uses: test -z $(go fmt ./...)
+          run: test -z $(go fmt ./...)
 
